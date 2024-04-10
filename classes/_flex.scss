@@ -1,0 +1,40 @@
+@if ($class) {
+    .flex-row {
+        @include flex($justify: space-between, $align: center);
+        &--around {
+            @include flex($justify: space-around, $align: center);
+        }
+
+        &--between {
+            @include flex($justify: space-between, $align: center);
+        }
+
+        &--center {
+            @include flex($justify: center, $align: center);
+        }
+
+        &--right {
+            @include flex($justify: flex-end, $align: center);
+        }
+    }
+
+    .flex-col {
+        @include flex($direction: column, $align: center);
+
+        &--around {
+            @include flex( $direction: column, $justify: space-around, $align: center);
+        }
+
+        &--between {
+            @include flex($justify: space-between, $align: center);
+        }
+
+        &--center {
+            @include flex($direction: column, $justify: center, $align: center);
+        }
+
+        &--bottom {
+            @include flex( $direction: column, $justify: flex-end, $align: center);
+        }
+    }
+}

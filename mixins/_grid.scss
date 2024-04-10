@@ -1,0 +1,10 @@
+@mixin grid($columns: 1, $rows: 1) {
+    display: grid;
+    grid-template-columns: $columns;
+    grid-template-rows: $rows;
+}
+
+@mixin grid-item($row-start, $row-end, $column-start, $column-end) {
+    grid-row: $row-start / $row-end;
+    grid-column: $column-start / $column-end;
+}
