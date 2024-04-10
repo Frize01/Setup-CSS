@@ -1,0 +1,75 @@
+
+
+@mixin flex($direction:row, $justify:flex-start, $align:stretch, $wrap:nowrap, $gap:0){
+    display: flex;
+    @if ($direction != row){
+        flex-direction: $direction;
+    }
+    @if ($justify != flex-start){
+        justify-content: $justify;
+    }
+    @if ($align != stretch){
+        align-items: $align;
+    }
+    @if ($wrap != nowrap){
+        flex-wrap: $wrap;
+    }
+    @if ($gap != 0) {
+        @include gap($gap);
+    }
+}
+
+// TODO : Trouver une maniere de verifier si une variable n'est pas editer on ne le rajoute pas dans le rendu
+
+// @mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap, $gap: 0) {
+//     display: flex;
+//     $flex-props: (flex-direction: $direction, justify-content: $justify, align-items: $align, flex-wrap: $wrap);
+
+//     @each $prop, $value in $flex-props {
+//         #{$prop}: $value;
+//     }
+
+//     @if $gap != 0 {
+//         @include gap($gap);
+//     }
+// }
+
+
+.flex-row{
+    @include flex($justify:space-between, $align:center);
+    &--around{
+        @include flex($justify:space-around, $align:center);
+    }
+
+    &--between{
+        @include flex($justify:space-between, $align:center);
+    }
+
+    &--center{
+        @include flex($justify:center, $align:center);
+    }
+
+    &--right{
+        @include flex($justify:flex-end, $align:center);
+    }
+}
+
+.flex-col{
+    @include flex($direction:column, $align:center);
+    &--around{
+        @include flex($direction:column, $justify:space-around, $align:center);
+    }
+
+    &--between{
+        @include flex($justify:space-between, $align:center);
+    }
+
+    &--center{
+        @include flex($direction:column, $justify:center, $align:center);
+    }
+
+    &--bottom{
+        @include flex($direction:column, $justify:flex-end, $align:center);
+    }
+}
+
