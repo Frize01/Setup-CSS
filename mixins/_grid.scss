@@ -1,7 +1,19 @@
 @mixin grid($columns: 1, $rows: 1) {
+    @include grid();
+    @include grid-col($columns);
+    @include grid-row($rows);
+}
+
+@mixin grid() {
     display: grid;
-    grid-template-columns: $columns;
-    grid-template-rows: $rows;
+}
+
+@mixin grid-col($columns: 1) {
+    grid-template-columns: repeat($columns, 1fr);
+}
+
+@mixin grid-row($rows: 1) {
+    grid-template-rows: repeat($rows, 1fr);
 }
 
 @mixin grid-item($row-start, $row-end, $column-start, $column-end) {
