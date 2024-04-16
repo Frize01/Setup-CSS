@@ -1,6 +1,7 @@
 @if ($class) {
     .flex-row {
         @include flex($justify: space-between, $align: center);
+
         &--around {
             @include flex($justify: space-around, $align: center);
         }
@@ -22,7 +23,7 @@
         @include flex($direction: column, $align: center);
 
         &--around {
-            @include flex( $direction: column, $justify: space-around, $align: center);
+            @include flex($direction: column, $justify: space-around, $align: center);
         }
 
         &--between {
@@ -34,7 +35,7 @@
         }
 
         &--bottom {
-            @include flex( $direction: column, $justify: flex-end, $align: center);
+            @include flex($direction: column, $justify: flex-end, $align: center);
         }
     }
 }

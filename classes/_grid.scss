@@ -1,0 +1,28 @@
+@use "sass:math";
+
+@if ($class) {
+
+    .grid {
+        @include grid();
+    }
+
+    $values: 1, 2, 4, 6, 8;
+
+    @each $value in $values {
+        .grid-col-#{$value} {
+            @include grid-col($columns: 1);
+
+            @if($value !=1) {
+                @media (min-width:$tablette) {
+                    @include grid-col($columns: math.div($value, 2));
+                }
+
+                @if($value !=2) {
+                    @media (min-width:$desktop) {
+                        @include grid-col($columns: $value);
+                    }
+                }
+            }
+        }
+    }
+}
